@@ -3,8 +3,9 @@ pragma solidity 0.8.13;
 
 import "forge-std/Test.sol";
 import {Emap} from "../src/Emap.sol";
-import {RootRegistrar, RootAppraiser} from "../src/RootRegistrar.sol";
+import {RootRegistrar} from "../src/RootRegistrar.sol";
 import {FreeRegistrar} from "../src/FreeRegistrar.sol";
+import {RootAppraiser} from "../src/RootAppraiser.sol";
 
 contract IntegrationTest is Test {
     Emap public emap;
@@ -41,12 +42,7 @@ contract IntegrationTest is Test {
         bytes memory testData = abi.encode(0x00000000219ab540356cBB839Cbe05303d7705Fa);
         freeRegistrar.take(testName);
         freeRegistrar.emap();
-        freeRegistrar.set(
-            testName, 
-            testKey,
-            testMeta,
-            testData
-        );
+        freeRegistrar.set(testName, testKey, testMeta, testData);
 
         // walk from root registrar to lowest level registrar
         string[1] memory labels = ["free"];
@@ -56,7 +52,7 @@ contract IntegrationTest is Test {
         string memory meta;
         bytes memory data;
         uint256 len = labels.length;
-        for (uint256 i=0; i < len; i++) {
+        for (uint256 i = 0; i < len; i++) {
             string memory label = labels[i];
             string memory key = keys[i];
             slot = keccak256(abi.encode(registrar, label));

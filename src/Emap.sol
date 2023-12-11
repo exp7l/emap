@@ -16,7 +16,7 @@ contract Emap {
 
     constructor(address root) {
         ROOT_REGISTRAR = root;
-    } 
+    }
 
     function set(string calldata name, string calldata key, string calldata meta, bytes calldata data) external {
         bytes32 slot = keccak256(abi.encode(msg.sender, name));

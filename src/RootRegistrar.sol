@@ -7,16 +7,6 @@ interface AppraiserLike {
     function appraise(string calldata name) external view returns (uint256 value);
 }
 
-contract RootAppraiser is AppraiserLike {
-    function appraise(string calldata name) external pure returns (uint256) {
-        if (keccak256(abi.encode(name)) == keccak256(abi.encode("free"))) {
-            return 0;
-        } else {
-            revert("ERR_NAME");
-        }
-    }
-}
-
 contract RootRegistrar {
     address public emap;
     uint256 public last;
@@ -65,7 +55,7 @@ contract RootRegistrar {
         require(!abdicated[which], "ERR_ABDICATED");
         if (which == 1) gov = data;
         else if (which == 2) appraiser = data;
-        else if (which == 3) emap = data;
+        else if (which == 3 && emap == address(0)) emap = data;
         else revert("ERR_WHICH");
         emit Configure(msg.sender, which, data);
     }
