@@ -1,7 +1,9 @@
-import {Emap} from "./Emap.sol";
-import "forge-std/Test.sol";
+/// SPDX-License-Identifier: AGPL-3.0
+pragma solidity 0.8.13;
 
-contract FreeRegistrar is Test {
+import {Emap} from "./Emap.sol";
+
+contract FreeRegistrar {
     address public immutable emap;
     uint256 public last;
     mapping(string => address) public controllers;
@@ -27,10 +29,7 @@ contract FreeRegistrar is Test {
     }
 
     function set(string calldata name, string calldata key, string calldata meta, bytes calldata data) external {
-        console.log("free1");
         require(controllers[name] == msg.sender, "ERR_OWNER");
-        console.log("free2");
         Emap(emap).set(name, key, meta, data);
-        console.log("free3");
     }
 }

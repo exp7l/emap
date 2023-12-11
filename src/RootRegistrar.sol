@@ -1,5 +1,7 @@
+/// SPDX-License-Identifier: AGPL-3.0
+pragma solidity 0.8.13;
+
 import {Emap} from "./Emap.sol";
-import "forge-std/Test.sol";
 
 interface AppraiserLike {
     function appraise(string calldata name) external view returns (uint256 value);
@@ -15,7 +17,7 @@ contract RootAppraiser is AppraiserLike {
     }
 }
 
-contract RootRegistrar is Test {
+contract RootRegistrar {
     address public emap;
     uint256 public last;
     uint256 public paid;
@@ -36,8 +38,6 @@ contract RootRegistrar is Test {
     }
 
     function commit(bytes32 hash) external payable {
-        console.log(block.timestamp);
-        console.log(last + FREQ);
         require(block.timestamp >= last + FREQ, "ERR_PENDING");
         payable(gov).call{value: msg.value}("");
         last = block.timestamp;

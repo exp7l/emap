@@ -1,7 +1,7 @@
-import "forge-std/Test.sol";
-// UI: block explorers
+/// SPDX-License-Identifier: AGPL-3.0
+pragma solidity 0.8.13;
 
-contract Emap is Test {
+contract Emap {
     struct Value {
         string meta;
         bytes data;
@@ -27,14 +27,11 @@ contract Emap is Test {
     // https://adibas03.github.io/online-ethereum-abi-encoder-decoder/#/encode
 
     function set(string calldata name, string calldata key, string calldata meta, bytes calldata data) external {
-        console.log("s1");
         bytes32 slot = keccak256(abi.encode(msg.sender, name));
         require(valueStore[slot][LOCK()].data.length == 0, "ERR_LOCK");
         _unset(slot, key);
-        console.log("s2");
         keyStore[slot].push(key);
         valueStore[slot][key] = Value({meta: meta, data: data});
-        console.log("s3");
         emit Set(msg.sender, name, key, meta, data);
     }
 
