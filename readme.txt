@@ -1,4 +1,4 @@
-Emap is a fork of [Dmap](https://github.com/dapphub/dmap/tree/master/).
+Emap is a fork of Dmap https://github.com/dapphub/dmap/tree/master
 
 It is an implementation of a ultra-minimal name service, everything under 150 lines of code.
 
