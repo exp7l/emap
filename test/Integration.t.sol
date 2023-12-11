@@ -50,7 +50,7 @@ contract IntegrationTest is Test {
 
         // walk from root registrar to lowest level registrar
         string[1] memory labels = ["free"];
-        string[1] memory keys = ["REGISTRAR"];
+        string[1] memory keys = [emap.REGISTRAR()];
         address registrar = emap.ROOT_REGISTRAR();
         bytes32 slot;
         string memory meta;
