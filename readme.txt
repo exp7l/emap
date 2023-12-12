@@ -26,3 +26,21 @@ To this end, the requirements are:
 * name is bought not rented, unlike Ethereum Name Service
 * supports forward resolution (name to resources) and reverse (resources to name)
 
+============
+deployment
+============
+
+      "contractName": "RootAppraiser",
+      "contractAddress": "0x11500Bee195242968D901b1352AdA3810CA0f5DB",
+
+      "contractName": "RootRegistrar",
+      "contractAddress": "0x777E03f58dF6079E536847E98EfF506F8558B3f4",
+
+      "contractName": "Emap",
+      "contractAddress": "0x07AB50AaBb1c11359eBBec4c9eBd64Bd38Fe2Bcb",
+
+      "contractName": "FreeRegistrar",
+      "contractAddress": "0xef8cfCb8e5C8a3142F5053CD4b9206BeC072B540",
+
+      "contractName": "RootRegistrar",
+      "contractAddress": "0x777E03f58dF6079E536847E98EfF506F8558B3f4",

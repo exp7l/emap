@@ -41,7 +41,6 @@ contract IntegrationTest is Test {
         string memory testMeta = "(bytes)";
         bytes memory testData = abi.encode(0x00000000219ab540356cBB839Cbe05303d7705Fa);
         freeRegistrar.take(testName);
-        freeRegistrar.emap();
         freeRegistrar.set(testName, testKey, testMeta, testData);
 
         // walk from root registrar to lowest level registrar
