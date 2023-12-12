@@ -29,10 +29,10 @@ contract RootRegistrar {
 
     function commit(bytes32 hash) external payable {
         require(block.timestamp >= last + FREQ, "ERR_PENDING");
-        payable(gov).call{value: msg.value}("");
         last = block.timestamp;
         paid = msg.value;
         commitment = hash;
+        payable(gov).call{value: msg.value}("");
         emit Commit(msg.sender, hash, msg.value);
     }
 
