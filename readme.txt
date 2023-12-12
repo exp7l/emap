@@ -21,10 +21,8 @@ The emphasis is on strictness and immutability.
 
 To this end, the requirements are:
 
-* "centralized" name resolution, everything is resolved with 1 contract object and the rules are the same for all names
-* allows users to have custom registrars so custom rules around e.g. fees can be customized
-* name is bought not rented, unlike Ethereum Name Service
-* supports forward resolution (name to resources) and reverse (resources to name)
+* you can lock a name that you own, your registrar cannot unlock it
+* name registrations can be delegated eg owner of the ":free" registrar can delegate name registrations to another registrar such as ":free:maker-dao"
 
 ============
 deployment
