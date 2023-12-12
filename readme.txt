@@ -24,9 +24,9 @@ To this end, the requirements are:
 * you can lock a name that you own, your registrar cannot unlock it
 * name registrations can be delegated eg owner of the ":free" registrar can delegate name registrations to another registrar such as ":free:maker-dao"
 
-============
-deployment
-============
+====================
+deployment on scroll
+====================
 
       "contractName": "RootAppraiser"
       "contractAddress": "0x11500Bee195242968D901b1352AdA3810CA0f5DB"
